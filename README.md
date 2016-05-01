@@ -1,5 +1,4 @@
-# alidayun
-阿里大鱼短信接口
+# 阿里大鱼短信接口PHP公共类
 
 配置参数：<br >
 app_key    ：所申请应用的app_key, <br >
