@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<!-- Meta, title, CSS, favicons, etc. -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Bootstrap - 简洁、直观、强悍、移动设备优先的前端开发框架，让web开发更迅速、简单。">
+		<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, bootstrap, front-end, frontend, web development">
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="author" content="译者：王赛 <wangsai@bootcss.com>">
+		<title>阿里大鱼测试demo</title>
+		<!-- Bootstrap core CSS -->
+		<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+	<div style="width:900px;margin:0 auto;">
+		<h3 class="text-center" style="height:100px;line-height:100px;">阿里大鱼测试demo</h3>
+		<form class="form-horizontal" id="alidayun">
+		  
+		  <div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">app_key</label>
+			<div class="col-sm-10">
+			  <input type="text" name="app_key" class="form-control" id="app_key" placeholder="app_key">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">secret_key</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="secret_key" name="secret_key" placeholder="secret_key">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">sms_free_sign_name</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="sms_free_sign_name" value="注册验证" name="sms_free_sign_name" placeholder="sms_free_sign_name">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">sms_template_code</label>
+			<div class="col-sm-10">
+			  <input type="tel" name="sms_template_code" class="form-control" id="sms_template_code" placeholder="sms_template_code">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">product</label>
+			<div class="col-sm-10">
+			  <input type="text" class="form-control" id="product" name="product" placeholder="product">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">接收短信手机号</label>
+			<div class="col-sm-10">
+			  <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="接收短信手机号">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+			  <button type="submit" class="btn btn-info" id="submitBtn">获取短信验证码</button>
+			</div>
+		  </div>
+		</form>
+	</div>
+	
+	
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			$("#submitBtn").click(function(){
+			    $.ajax({
+					url: "api.php",
+					type: "post",
+					dataType: "json",
+					data: $("#alidayun").serialize(),
+					success: function(data){
+					    alert(data.msg);
+					}
+				});
+				return false;
+			});
+		});
+	</script>
+	</body>
+</html>
